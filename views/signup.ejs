@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/signup_style.css">
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="auth-left">
+            <h2>WAYPOINT Sign Up</h2>
+            <p>Join WayPoint Today! to explore breathtaking destinations and thrilling tours!</p>
+        </div>
+
+        <div class="auth-right">
+            <h2>Create an Account</h2>
+            <form action="/api/signup" method="POST">
+                <input type="text" name="username" class="form-control" placeholder="Username" required>
+                <input type="email" name="email" class="form-control" placeholder="Email" required>
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="termsCheck" required>
+                    <label class="form-check-label" for="termsCheck">
+                        I agree to the <a href="#" style="color:#4f8bf9;">Terms & Conditions</a> 
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-primary">Sign Up</button>
+            </form>
+
+            <p class="footer-link">Already have an account? <a href="/api/signin">Sign In here</a></p>
+
+            <% if (errorMessage) { %> <!-- Display error message if exists -->
+                <p class="alert alert-danger"><%= errorMessage %></p>
+            <% } %>
+
+            <p class="text-center my-3">OR</p>
+            <div class="social-login text-center">
+                <a href="https://accounts.google.com/signin" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google">
+                </a>
+                <a href="https://www.facebook.com/" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+                                            <!-- FORM EXPLAINATION -->
+<!-- FEATURE	                                 DESCRIPTION                                  RESULT
+type="text"	For                 entering plain text (username)	                    Browser will check if it’s filled (with required)
+type="email"	                Validates email format (@ and . required)	        Browser will show error if invalid format
+type="password"	                Password input (hidden characters)	                Browser checks if filled (with required)
+required	                    Applied to all inputs and checkbox	                Prevents form submission if field is empty
+type="checkbox" + required	    Ensures checkbox must be checked	                Will show error if user doesn’t check it
+action="/api/signup"	    Submits the form data to your backend (Express route)	Sends a POST request to /api/signup
+method="POST"	                Sends data via HTTP POST	                        Sends secure form data (not visible in URL) -->

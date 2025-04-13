@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Your Tour</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 40px;
+    }
+    .destinations {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 250px;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .card-body {
+      padding: 15px;
+    }
+    .card-body h3 {
+      margin: 0 0 10px;
+    }
+    .card-body form {
+      display: flex;
+      flex-direction: column;
+    }
+    .card-body input,
+    .card-body select,
+    .card-body button {
+      margin: 5px 0;
+      padding: 8px;
+      font-size: 14px;
+    }
+    .card-body button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .card-body button:hover {
+      background-color: #0056b3;
+    }
+    .message {
+      margin: 20px auto;
+      width: 60%;
+      font-weight: bold;
+      color: green;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Book Your Tour</h1>
+
+  <% if (errorMessage) { %>
+    <div class="message error"><%= errorMessage %></div>
+  <% } %>
+
+  <% if (successMessage) { %>
+    <div class="message"><%= successMessage %></div>
+  <% } %>
+
+  <div class="destinations">
+
+    <% const destinations = [
+      { name: 'Swat Valley', img: '/images/swat.jpg' },
+      { name: 'Hunza', img: '/images/hunza.jpg' },
+      { name: 'Skardu', img: '/images/skardu.jpg' },
+      { name: 'Murree', img: '/images/murree.jpg' },
+      { name: 'Kumrat', img: '/images/kumrat.jpg' }
+    ]; %>
+
+    <% destinations.forEach(dest => { %>
+      <div class="card">
+        <img src="<%= dest.img %>" alt="<%= dest.name %>">
+        <div class="card-body">
+          <h3><%= dest.name %></h3>
+          <form action="/api/book" method="POST">
+            <input type="hidden" name="destination" value="<%= dest.name %>">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="date" name="date" required>
+            <input type="number" name="people" placeholder="No. of People" min="1" required>
+            <button type="submit">Book Now</button>
+          </form>
+        </div>
+      </div>
+    <% }); %>
+
+  </div>
+</body>
+</html>
