@@ -1,0 +1,182 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #1d2b64, #f8cdda);
+}
+
+/* Main Container for Flex Layout */
+.auth-container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fadeIn 1s ease-out;
+}
+
+
+/* Keyframe for Fade-In Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Left Panel (Promo/Info Section) */
+.auth-left {
+    background: url('https://i.pinimg.com/736x/a8/e2/c9/a8e2c97d06783af8b528e7f9ce764c4f.jpg') center center/cover;
+    color: white;
+    padding: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+    
+}
+
+.auth-left h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    backdrop-filter: blur(10px);
+    margin-left: 30px;
+}
+
+.auth-left p {
+    font-size: 1.2rem;
+    margin-bottom: 400px;
+    backdrop-filter: blur(5px);
+}
+
+.auth-left img {
+    width: 250px;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.auth-left img:hover {
+    transform: scale(1.1);
+}
+
+
+.auth-right {
+    background-color: #fff;
+    padding: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-right h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-control {
+    background-color: #f4f6f9;
+    border-radius: 10px;
+    border: 2px solid #303030;
+    color: #333;
+    font-size: 1rem;
+    padding: 12px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    background-color: #fff;
+    border-color: #4f8bf9;
+    box-shadow: 0 0 8px rgba(79, 139, 249, 0.5);
+}
+
+.form-check-label {
+    font-size: 0.9rem;
+    color: #777;
+}
+.form-check-input{
+    border: 2px solid #303030;
+}
+
+.btn-primary {
+    background-color: #4f8bf9;
+    border-color: #4f8bf9;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    height: 40px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    width: 100px;
+    margin-top: 20px;
+}
+
+.btn-primary:hover {
+    background-color: #367bbd;
+    border-color: #367bbd;
+}
+
+/* Social Media Buttons */
+.social-login {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.social-login a {
+    margin: 0 10px;
+    display: inline-block;
+    transition: transform 0.2s;
+}
+
+.social-login a:hover {
+    transform: scale(1.1);
+}
+
+.social-login img {
+    height: 40px;
+    width: auto;
+}
+
+.footer-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-link a {
+    color: #4f8bf9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-link a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .auth-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .auth-left, .auth-right {
+        width: 100%;
+    }
+}
