@@ -1,0 +1,71 @@
+
+BEE_WAYPOINT/
+│
+├── api/
+│   └── apiRoutes.js
+│
+├── middlewares/
+│   ├── logger.js
+│   └── errorHandler.js
+│
+├── public/
+│   ├── css/
+│   └── images/
+│   └── home.html
+│   └── signup.html
+│   └── signin.html
+│
+├── views/                <-- 💡 New folder for EJS templates
+│   ├── home.ejs
+│   ├── signup.ejs
+│   └── signin.ejs
+│
+├── users.json
+├── server.js
+└── package.json
+
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Q: Why do we need to pass errorMessage in server.js as empty like res.render('signup', { errorMessage: '' }); 
+when rendering EJS templates in Express.js?
+
+✅ Answer: Because if you don’t define errorMessage, EJS will throw a ReferenceError when trying to access it.
+🔍 Detailed Explanation:
+
+When using EJS (Embedded JavaScript) as a template engine in your Express app,
+ you often include variables inside the template(signup.ejs or signin.ejs), like:
+
+<% if (errorMessage) { %>
+  <p class="alert alert-danger"><%= errorMessage %></p>
+<% } %>
+
+This code assumes that errorMessage is available when the page is rendered. But if it's not passed from the server-side route,
+ Node will crash with an error like:
+ ReferenceError: errorMessage is not defined
+
+🛠️ How to Fix It:
+You need to always pass errorMessage to your EJS template when rendering it in Express, even if it’s just an empty string:
+
+// IN Server.js
+res.render('signup', { errorMessage: '' });
+
+res.render('signin', { errorMessage: '' });
+Now, errorMessage will always be defined in the EJS file, 
+and your conditional block works safely:
+
+If no error → nothing displays
+If an error exists → it shows the message in a red alert box (css because of Bootstrap)
+-------------------------------------------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------------------------------------------
+
+The reason the error message appears in a red box with styling, even though you haven't added any custom CSS, is because of the Bootstrap classes you're using.
+
+<p class="alert alert-danger"><%= errorMessage %></p>
+1. alert: This class comes from Bootstrap and is used to style messages, giving them a specific appearance, such as padding and margin.
+
+2.alert-danger: This class applies a red background color and white text color to indicate a danger or error message, typically used for error notifications.
+
+-------------------------------------------------------------------------------------------------------------------------
