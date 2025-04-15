@@ -53,7 +53,9 @@ res.render('signin', { errorMessage: '' });
 Now, errorMessage will always be defined in the EJS file, 
 and your conditional block works safely:
 
+
 If no error → nothing displays
+
 If an error exists → it shows the message in a red alert box (css because of Bootstrap)
 -------------------------------------------------------------------------------------------------------------------------
 
