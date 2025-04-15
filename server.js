@@ -93,8 +93,6 @@ app.get('/api/users', (req, res) => {
 
 
 
-
-
 // Use error handler middleware
 app.use(errorHandler);
 
