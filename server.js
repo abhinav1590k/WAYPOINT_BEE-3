@@ -41,7 +41,6 @@ const apiRoutes = require('./api/apiRoutes');
 app.use('/api', apiRoutes); // Mount the API routes under the `/api` path
 
 // Render Sign-Up Page
-// Render Sign-Up Page
 app.get('/', (req, res) => {
   res.render('signup', { errorMessage: '' });  // Pass errorMessage as an empty string
 });
@@ -56,20 +55,24 @@ app.get('/api/signin', (req, res) => {
 app.get('/api/home', (req, res) => {
   res.render('home');
 });
+app.get('/api/booking', (req, res) => {
+  res.render('booking');
+});
 
 // Render Contact Us Page
 app.get('/api/contact_us', (req, res) => {
   res.render('contact_us');
 });
 
-// Render Book Page
-app.get('/api/book', (req, res) => {
-  res.render('book');
-});
+
 
 // Render Gallery Page
 app.get('/api/gallery', (req, res) => {
   res.render('gallery');
+});
+
+app.get('/api/email', (req, res) => {
+  res.render('email');
 });
 
 // Render Travel Page
