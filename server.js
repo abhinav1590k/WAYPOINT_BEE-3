@@ -6,7 +6,7 @@ const morgan = require('morgan'); // Import Morgan for logging HTTP requests
 const rateLimit = require('express-rate-limit'); // Import express-rate-limit for rate limiting
 const compression = require('compression'); // Import compression middleware to compress response bodies
 const cors = require('cors'); // Import CORS for enabling Cross-Origin Resource Sharing
-const PORT = 8090; // Defining the port number for the server
+const PORT = 8090;   // Defining the port number for the server
 
 // Set EJS as the template engine
 app.set('view engine', 'ejs');
