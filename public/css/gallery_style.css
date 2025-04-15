@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;  /* Applying Poppins font to all elements */
+    font-family: 'Poppins', sans-serif;  /* Applying Poppins font to all elements */-
     text-transform: capitalize;
     transition: all .3s ease;
 }
