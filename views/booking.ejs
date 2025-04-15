@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book <%= destination.name %> - BEE_WAYPOINT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    body {
+        font-family: 'Roboto', sans-serif;
+      background: #f2f4f8;
+      color: #2c3e50;
+    }
+  
+    .container {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #ded8d8;
+      border-radius: 16px;
+      box-shadow: 0 18px 33px rgba(6, 0, 0, 0.495);
+      border: 1px solid #dcdde1;
+    }
+  
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+  
+    .header h1 {
+      font-size: 34px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+  
+    .booking-content {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+  
+    .destination-img {
+      flex: 1;
+      min-width: 320px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: box-shadow 0.3s ease;
+    }
+  
+    .destination-img img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+  
+    .destination-img:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+  
+    .destination-img:hover img {
+      transform: scale(1.02);
+    }
+  
+    .booking-form {
+      flex: 1;
+      min-width: 320px;
+      border: 2px solid #b4b0b0;
+      padding: 20px;
+      border-radius: 12px;
+      background: #f9f9f9;
+      transition: box-shadow 0.3s ease;
+    }
+  
+    .booking-form:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+  
+    .booking-form p {
+      font-size: 18px;
+      margin-bottom: 25px;
+      color: #555;
+      line-height: 1.6;
+    }
+  
+    form input,
+    form textarea,
+    form button {
+      width: 100%;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      font-size: 15px;
+      border-radius: 8px;
+      border: 2px solid #303030;
+      transition: all 0.3s ease;
+    }
+  
+    form input:focus,
+    form textarea:focus {
+      border-color: #1d3557;
+      outline: none;
+      box-shadow: 0 0 8px rgba(29, 53, 87, 0.25);
+      background-color: #fff;
+    }
+  
+    form textarea {
+      resize: vertical;
+    }
+  
+    form button {
+      background-color: #1d3557;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+  
+    form button:hover {
+      background-color: #16314f;
+      box-shadow: 0 4px 12px rgba(22, 49, 79, 0.3);
+    }
+  
+    @media (max-width: 768px) {
+      .booking-content {
+        flex-direction: column;
+      }
+  
+      .container {
+        margin: 20px;
+        padding: 20px;
+      }
+    }
+  </style>
+  
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Book Your Journey to <%= destination.name %></h1>
+    </div>
+    <div class="booking-content">
+      <div class="destination-img">
+        <img src="<%= destination.image %>" alt="<%= destination.name %>">
+      </div>
+      <div class="booking-form">
+        <p><%= destination.description %></p>
+        <form action="/api/submit-booking" method="POST">
+          <input type="hidden" name="destination" value="<%= destination.name %>">
+          <input type="text" name="name" placeholder="Your Full Name" required>
+          <input type="email" name="email" placeholder="Email Address" required>
+          <input type="date" name="travelDate" required>
+          <input type="number" name="travelers" placeholder="Number of Travelers" min="1" required>
+          <textarea name="notes" placeholder="Any Special Requests?" rows="4"></textarea>
+          <button type="submit">Confirm Booking</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
