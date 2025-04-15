@@ -8,6 +8,7 @@ const errorHandler = (err, req, res, next) => {
     });
 };
 
+
 // Export the error handler middleware
 module.exports = errorHandler;
 
