@@ -7,9 +7,5 @@ const errorHandler = (err, req, res, next) => {
         message: err.message || 'Internal Server Error' // Include error message if available
     });
 };
-
-
 // Export the error handler middleware
 module.exports = errorHandler;
-
-
