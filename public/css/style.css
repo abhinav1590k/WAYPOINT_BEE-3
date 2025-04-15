@@ -138,7 +138,7 @@ section.home {
 }
 
 .home .home-box nav .menu ul li a:hover::after {
-    transform: scaleX(1); /* Scale to full width on hover */
+    transform: scaleX(1); /* Scale to full width on hover---- */
 }
 
 .home .home-box nav .signup-login {
