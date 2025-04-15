@@ -7,6 +7,8 @@ const router = express.Router(); // Creating a new router object for handling ro
 // File path for users.json
 const usersFilePath = path.join(__dirname, '../users.json'); // Constructing the path to the users.json file located one directory up from the current directory
 const bookingsFilePath = path.join(__dirname, '../bookings.json');
+const destinationFilePath = path.join(__dirname, '../destination.json');
+
 // Sign-Up Route (Saves User Data)
 router.post('/signup', (req, res, next) => { // Defining a POST route for user sign-up
   const { username, email, password } = req.body; // Destructuring the request body to get username, email, and password
@@ -64,49 +66,39 @@ router.post('/signin', (req, res, next) => { // Defining a POST route for user s
   });
 });
 
-router.post('/book', (req, res, next) => {
-  const { name, email, destination, date, people } = req.body;
-
-  // Validate form input
-  if (!name || !email || !destination || !date || !people) {
-    return res.render('book', {
-      errorMessage: 'Please fill in all fields.',
-      successMessage: ''
-    });
-  }
-
-  // Read existing bookings
-  fs.readFile(bookingsFilePath, 'utf-8', (err, data) => {
+router.get('/book', (req, res, next) => {
+  const destinationName = req.query.name;
+  fs.readFile(destinationFilePath, 'utf-8', (err, data) => {
     if (err) return next(err);
-
-    let bookings = [];
-    if (data) {
-      bookings = JSON.parse(data);
-    }
-
-    const newBooking = {
-      name,
-      email,
-      destination,
-      date,
-      people
-    };
-
-    bookings.push(newBooking);
-
-    fs.writeFile(bookingsFilePath, JSON.stringify(bookings, null, 2), (err) => {
-      if (err) return next(err);
-
-      // Show confirmation message
-      res.render('book', {
-        successMessage: 'Trip booked successfully!',
-        errorMessage: ''
+    const destinations = JSON.parse(data);
+    const destination = destinations.find(d => d.name.toLowerCase() === destinationName?.toLowerCase());
+    if (destination) {
+      res.render('booking', { destination });
+    } else {
+      res.render('booking', {
+        destination: {
+          name: "Unknown Destination",
+          image: "",
+          description: "No information available."
+        }
       });
-    });
+    }
   });
 });
 
-
+// Submit booking
+router.post('/submit-booking', (req, res, next) => {
+  const newBooking = req.body;
+  fs.readFile(bookingsFilePath, 'utf-8', (err, data) => {
+    let bookings = [];
+    if (!err && data) bookings = JSON.parse(data);
+    bookings.push(newBooking);
+    fs.writeFile(bookingsFilePath, JSON.stringify(bookings, null, 2), err => {
+      if (err) return next(err);
+      res.send("Booking submitted successfully!");
+    });
+  });
+});
 module.exports = router; // Exporting the router to be used in other parts of the application
 
 
