@@ -9,7 +9,7 @@ body {
     background: linear-gradient(135deg, #1d2b64, #f8cdda);
 }
 
-/* Main Container for Flex Layout */
+/*   Main Container for Flex Layout   */
 .auth-container {
     display: flex;
     max-width: 1200px;
