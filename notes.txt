@@ -59,7 +59,7 @@ If an error exists → it shows the message in a red alert box (css because of B
 
 
 -------------------------------------------------------------------------------------------------------------------------
-
+-------------------------------------------------------------------------------------------------------------------------
 The reason the error message appears in a red box with styling, even though you haven't added any custom CSS, is because of the Bootstrap classes you're using.
 
 <p class="alert alert-danger"><%= errorMessage %></p>
