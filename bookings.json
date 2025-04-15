@@ -1,0 +1,34 @@
+[
+  {
+    "destination": "Bali",
+    "name": "Abhinav",
+    "email": "abhinav1590.be23@chitkara.edu.in",
+    "travelDate": "2025-04-12",
+    "travelers": "3",
+    "notes": "-"
+  },
+  {
+    "destination": "Rome",
+    "name": "Abhi",
+    "email": "gkul@gmail.com",
+    "travelDate": "2025-05-08",
+    "travelers": "33",
+    "notes": "no"
+  },
+  {
+    "destination": "Bali",
+    "name": "abhinav",
+    "email": "abhinav1590.be@chitkara.edu.in",
+    "travelDate": "2025-04-02",
+    "travelers": "8",
+    "notes": "-"
+  },
+  {
+    "destination": "Vietnam",
+    "name": "abhinav",
+    "email": "abhinav1590.be@chitkara.edu.in",
+    "travelDate": "2025-04-17",
+    "travelers": "99",
+    "notes": "--"
+  }
+]

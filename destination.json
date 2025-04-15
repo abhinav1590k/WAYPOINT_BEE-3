@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Hawai",
+        "image": "/images/home-background.jpg",
+        "description": "Explore the beauty of Hawai's exotic islands and beaches."
+      },
+      
+    {
+      "name": "Bali",
+      "image": "/images/destinations-1.jpg",
+      "description": "Experience the romantic city of lights ~ Bali."
+    },
+    {
+      "name": "Vietnam",
+      "image": "/images/destinations-2.jpg",
+      "description": "Explore the vibrant culture and cuisine of Vietnam."
+    },
+    {
+    "name": "Maldives",
+    "image": "/images/destinations-3.jpg",
+    "description": "A tropical haven in the Indian Ocean known for luxurious overwater villas and turquoise lagoons."
+    },
+    {
+    "name": "Rome",
+    "image": "/images/destinations-4.jpg",
+    "description": "A timeless city steeped in history, home to the Colosseum and Vatican City."
+    }
+  ]
+  
