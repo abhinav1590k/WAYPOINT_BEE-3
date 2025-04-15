@@ -65,6 +65,7 @@ If an error exists → it shows the message in a red alert box (css because of B
 The reason the error message appears in a red box with styling, even though you haven't added any custom CSS, is because of the Bootstrap classes you're using.
 
 <p class="alert alert-danger"><%= errorMessage %></p>
+
 1. alert: This class comes from Bootstrap and is used to style messages, giving them a specific appearance, such as padding and margin.
 
 2.alert-danger: This class applies a red background color and white text color to indicate a danger or error message, typically used for error notifications.
