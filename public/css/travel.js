@@ -8,4 +8,4 @@ $(".custom-carousel").owlCarousel({
       $(this).toggleClass("active");
     });
   });
-  
+
